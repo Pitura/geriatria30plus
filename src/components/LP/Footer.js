@@ -1,13 +1,12 @@
 import React from 'react';
-import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 
 export default function Footer() {
     return (
         <>
             <section className='container czarny-humor'></section>
-            <section className='container contact mt-5'>
-                <h3><strong>W razie pytań, zapraszam do kontaktu!</strong></h3>
+            <section className='container contact mt-5' style={{width:'80%'}}>
+                <h3><strong>Chcesz podzielić się opinią? Zapraszam do kontaktu!</strong></h3>
                 <form className='row g-3'>
                     <div className='col-md-6'>
                         <label htmlFor='firstName' className='form-label'>Imię</label>
@@ -52,7 +51,7 @@ export default function Footer() {
                         {' '}
                         Geriatria 30+
                     </Navbar.Brand>
-                    <div className='footer-text'> - No rights reserved. Designed By Pitura</div>
+                    <div className='footer-text'> , No rights reserved. Designed By Pitura</div>
                 </div>
             </footer>
         </>
