@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Outlet } from 'react-router-dom';
-
+import Login from "./Login";
 
 // import NavDropdown from 'react-bootstrap/NavDropdown';
 
@@ -24,8 +24,7 @@ export default function LayoutMenu() {
                         <Nav className="me-auto">
                             <Nav.Link href="/list"><i className="fa-solid fa-list"></i> Twoja lista</Nav.Link>
                             <Nav.Link href="/profile"><i className="fa-solid fa-user"></i> Profil</Nav.Link>
-
-                            <Nav.Link href="">Zaloguj/Wyloguj</Nav.Link>
+                            <Login />
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
