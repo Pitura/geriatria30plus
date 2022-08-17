@@ -32,6 +32,7 @@ function Register() {
                 email: email,
                 password: password,
                 phoneNumber: phoneNumber,
+                tests: [],
                 timeStamp: serverTimestamp(),
             })
         } catch (err) {

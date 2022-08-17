@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useState } from 'react';
 import { Form, Button, Card} from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import {getAuth, signInWithEmailAndPassword} from 'firebase/auth';
