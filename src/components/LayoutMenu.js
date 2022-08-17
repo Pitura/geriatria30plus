@@ -3,13 +3,9 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Outlet } from 'react-router-dom';
-import Login from "./Login";
-
-// import NavDropdown from 'react-bootstrap/NavDropdown';
-
-// const userIcon = <i className="fa-solid fa-user"></i>;
 
 export default function LayoutMenu() {
+
     return (
         <>
             <Navbar bg="light" expand="lg">
@@ -24,7 +20,7 @@ export default function LayoutMenu() {
                         <Nav className="me-auto">
                             <Nav.Link href="/list"><i className="fa-solid fa-list"></i> Twoja lista</Nav.Link>
                             <Nav.Link href="/profile"><i className="fa-solid fa-user"></i> Profil</Nav.Link>
-                            <Login />
+                            <Nav.Link href='/login'>Wyloguj/Zaloguj</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
@@ -33,15 +29,3 @@ export default function LayoutMenu() {
         </>
     );
 }
-
-// <NavDropdown title='Użytkownik' id="basic-nav-dropdown" >
-//     <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-//     <NavDropdown.Item href="#action/3.2">
-//         Another action
-//     </NavDropdown.Item>
-//     <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-//     <NavDropdown.Divider />
-//     <NavDropdown.Item href="#action/3.4">
-//         Wyloguj
-//     </NavDropdown.Item>
-// </NavDropdown>

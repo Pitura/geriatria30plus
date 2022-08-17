@@ -1,79 +1,42 @@
 import React, { useState } from 'react';
-import {Modal, Nav, Form, Button } from "react-bootstrap";
+import { Form, Button, Card} from "react-bootstrap";
+import Container from "react-bootstrap/Container";
+
 
 function Login() {
+    const [error, setError] = useState(false);
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
-    const [login, setLogin] = useState(false)
-    const [show, setShow] = useState(false);
-
-    function handleShow() {
-        setShow(true);
+    function handleLogin() {
+        console.log('test');
     }
 
     return (
-        <>
-            <Nav.Link onClick={handleShow}>{login ? 'Wyloguj' : 'Zaloguj'}</Nav.Link>
-
-            <Modal show={show} size='lg' aria-labelledby='contained-modal-title-vcenter' centered onHide={() => setShow(false)}>
-                <Modal.Header closeButton>
-                    <Modal.Title id='contained-modal-title-vcenter'>Logowanie</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <Form className='container'>
+    <>
+        <Container className='d-flex  align-items-center justify-content-center' style={{minHeight: '80vh'}}>
+            <Card className='w-100' style={{maxWidth:'650px'}}>
+                <Card.Body >
+                    <h2 className="text-center mb-4">Logowanie</h2>
+                    <Form className='container' style={{height:''}} onSubmit={handleLogin}>
                         <Form.Group id='email' >
                             <Form.Label>Email</Form.Label>
-                            <Form.Control type='email' required/>
+                            <Form.Control type='email' required onChange={e => setEmail(e.target.value)}/>
                         </Form.Group>
                         <Form.Group id='password'>
                             <Form.Label>Hasło</Form.Label>
-                            <Form.Control type='password' required/>
+                            <Form.Control type='password' required onChange={e => setPassword(e.target.value)}/>
                         </Form.Group>
+                        <div>
+                            {error && <div style={{color:'tomato',padding:'10px', margin:'0 auto', alignContent:'center'}}>Błędny login lub hasło!</div>}
+                            <Button className='mt-4 float-end btn-lg w-100' type='submit'>Zaloguj</Button>
+                        </div>
                     </Form>
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button className='col-md-3' style={{marginLeft:'auto', width:'100%'}} type='submit'>Zaloguj</Button>
-                </Modal.Footer>
-            </Modal>
-        </>
+                </Card.Body>
+            </Card>
+        </Container>
+    </>
     )
 }
-
-//     const [login, setLogin] = useState(false)
-//     const [show, setShow] = useState(false);
-//
-//     function handleShow() {
-//         setShow(true);
-//     }
-//
-//     return (
-//         <>
-//             <Nav.Link onClick={handleShow}>{login ? 'Wyloguj' : 'Zaloguj'}</Nav.Link>
-//             <Modal show={show} size='lg' aria-labelledby='contained-modal-title-vcenter' centered onHide={() => setShow(false)}>
-//                 <Modal.Header closeButton>
-//                     <Modal.Title id='contained-modal-title-vcenter'>Logowanie</Modal.Title>
-//                 </Modal.Header>
-//                 <Modal.Body>
-//                     <section className='container' style={{margin:'2rem 0 2rem 0'}}>
-//                         <form className='row g-3'>
-//                             <div className='col-md-12'>
-//                                 <label htmlFor='login' className='form-label'>Login</label>
-//                                 <input type="text" className='form-control' id='login' required/>
-//                             </div>
-//                             <div className='col-md-12'>
-//                                 <label htmlFor='password' className='form-label'>Hasło</label>
-//                                 <input type="password" className='form-control' id='password' required/>
-//                             </div>
-//                         </form>
-//                     </section>
-//                 </Modal.Body>
-//                 <Modal.Footer>
-//                     <div className='col-md-3'>
-//                         <button style={{marginLeft:'auto', width:'100%'}} type='submit' className='btn btn-primary'>Zaloguj</button>
-//                     </div>
-//                 </Modal.Footer>
-//             </Modal>
-//         </>
-//     )
-// }
 
 export default Login;
