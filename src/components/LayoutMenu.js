@@ -4,7 +4,13 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Outlet } from 'react-router-dom';
 
+
 export default function LayoutMenu() {
+    const IS_LOGGED = sessionStorage.getItem('user');
+
+    function clear() {
+        sessionStorage.clear()
+    }
 
     return (
         <>
@@ -18,9 +24,12 @@ export default function LayoutMenu() {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="/list"><i className="fa-solid fa-list"></i> Twoja lista</Nav.Link>
-                            <Nav.Link href="/profile"><i className="fa-solid fa-user"></i> Profil</Nav.Link>
-                            <Nav.Link href='/login'>Wyloguj/Zaloguj</Nav.Link>
+                            <Nav.Link disabled={IS_LOGGED === null} href="/list"><i className="fa-solid fa-list"></i> Twoja lista</Nav.Link>
+                            <Nav.Link disabled={IS_LOGGED === null} href="/profile"><i className="fa-solid fa-user"></i> Profil</Nav.Link>
+                            {IS_LOGGED === null
+                                ?<Nav.Link href='/login'>{'Zaloguj'}</Nav.Link>
+                                :<Nav.Link onClick={clear} href='/'>{'Wyloguj'}</Nav.Link>
+                            }
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

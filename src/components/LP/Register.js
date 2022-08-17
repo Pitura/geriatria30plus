@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
 import {Button, Card} from 'react-bootstrap';
 import Container from "react-bootstrap/Container";
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import app from '../../firebase-config';
+import {useNavigate} from "react-router-dom";
 
 function Register() {
 
@@ -15,9 +18,25 @@ function Register() {
     // const createUser = async () => {
     //     await addDoc(usersCollectionRef, { email: newEmail, password: newPassword})
     // }
+    const navigate = useNavigate();
 
+    const auth = getAuth(app);
 
-
+    const signUp =(e) => {
+        e.preventDefault();
+        createUserWithEmailAndPassword(auth, newEmail, newPassword)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                console.log(user)
+                alert('Konto zostało stworzone')
+                navigate('/')
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                console.log(errorCode)
+                alert(errorCode)
+            })
+    }
 
     return (
         <>
@@ -25,7 +44,7 @@ function Register() {
                 <Card className='w-100' style={{maxWidth:'650px'}}>
                     <Card.Body>
                         <h2 className="text-center mb-4">Rejestracja</h2>
-                        <form className='row g-3'>
+                        <form className='row g-3' onSubmit={signUp}>
                             {/*<div className='col-md-12'>*/}
                             {/*    <label htmlFor="firstName" className='form-label'>Imię</label>*/}
                             {/*    <input onChange={e => {setNewName(e.target.value)}}  type="text" className='form-control' id='firstName' required/>*/}
@@ -35,12 +54,12 @@ function Register() {
                             {/*    <input onChange={e => {setNewSurname(e.target.value)}} type="text" className='form-control' id='lastName' required/>*/}
                             {/*</div>*/}
                             <div className='col-md-12'>
-                                <label htmlFor='password' className='form-label'>Hasło</label>
-                                <input onChange={e => {setNewPassword(e.target.value)}} type="password" className='form-control' id='password' required/>
-                            </div>
-                            <div className='col-md-12'>
                                 <label htmlFor='emailInfo' className='form-label'>E-mail</label>
                                 <input onChange={e => {setNewEmail(e.target.value)}} type="email" className='form-control' id='emailInfo' required/>
+                            </div>
+                            <div className='col-md-12'>
+                                <label htmlFor='password' className='form-label'>Hasło</label>
+                                <input onChange={e => {setNewPassword(e.target.value)}} type="password" className='form-control' id='password' required/>
                             </div>
                             {/*<div className='col-md-12'>*/}
                             {/*    <label htmlFor='phoneNumber' className='form-label'>Telefon</label>*/}
