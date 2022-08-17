@@ -1,5 +1,5 @@
-import React, {useContext} from 'react';
-import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
+import React from 'react';
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import LayoutMenu from "./components/LayoutMenu";
 import Main from "./components/LP/Main";
 import List from "./components/TestList/List";
@@ -14,8 +14,8 @@ function App() {
     return  (
         <BrowserRouter>
             <Routes>
-                <Route path='/' element={ <LayoutMenu />}>
-                    <Route path='/' element={<Main />} />
+                <Route path='/' element={ <LayoutMenu loggedIn={IS_LOGGED}/>}>
+                    <Route path='/' element={<Main loggedIn={IS_LOGGED}/>} />
                     <Route path='/list' element={ <List />} />
                     <Route path='/profile' element={<Profile />} />
                     <Route path='/register' element={<Register />} />

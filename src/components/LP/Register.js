@@ -2,40 +2,42 @@ import React, {useState} from 'react';
 import {Button, Card} from 'react-bootstrap';
 import Container from "react-bootstrap/Container";
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
-import app from '../../firebase-config';
+import { app, db } from '../../firebase-config';
+import { setDoc, doc, serverTimestamp } from 'firebase/firestore';
 import {useNavigate} from "react-router-dom";
 
 function Register() {
 
-    // const [newName, setNewName] = useState('');
-    // const [newSurname, setNewSurname] = useState('');
-    // const [newPhoneNumber, setNewPhoneNumber] = useState('');
-    const [newEmail, setNewEmail] = useState('');
-    const [newPassword, setNewPassword] = useState('');
+    const [gender, setGender] = useState('');
+    const [birth, setBirth] = useState('');
+    const [name, setName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [phoneNumber, setPhoneNumber] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
-    // const usersCollectionRef = collection(db, 'users');
-
-    // const createUser = async () => {
-    //     await addDoc(usersCollectionRef, { email: newEmail, password: newPassword})
-    // }
     const navigate = useNavigate();
 
     const auth = getAuth(app);
 
-    const signUp =(e) => {
+    const signUp = async (e) => {
         e.preventDefault();
-        createUserWithEmailAndPassword(auth, newEmail, newPassword)
-            .then((userCredential) => {
-                const user = userCredential.user;
-                console.log(user)
-                alert('Konto zostało stworzone')
-                navigate('/')
+        try {
+            const res = await createUserWithEmailAndPassword(auth, email, password);
+            await setDoc(doc(db, 'users', res.user.uid), {
+                name: name,
+                lastName: lastName,
+                gender: gender,
+                birth: birth,
+                email: email,
+                password: password,
+                phoneNumber: phoneNumber,
+                timeStamp: serverTimestamp(),
             })
-            .catch((error) => {
-                const errorCode = error.code;
-                console.log(errorCode)
-                alert(errorCode)
-            })
+        } catch (err) {
+            console.log(err);
+        }
+        navigate('/')
     }
 
     return (
@@ -45,26 +47,38 @@ function Register() {
                     <Card.Body>
                         <h2 className="text-center mb-4">Rejestracja</h2>
                         <form className='row g-3' onSubmit={signUp}>
-                            {/*<div className='col-md-12'>*/}
-                            {/*    <label htmlFor="firstName" className='form-label'>Imię</label>*/}
-                            {/*    <input onChange={e => {setNewName(e.target.value)}}  type="text" className='form-control' id='firstName' required/>*/}
-                            {/*</div>*/}
-                            {/*<div className='col-md-12'>*/}
-                            {/*    <label htmlFor='lastName' className='form-label'>Nazwisko</label>*/}
-                            {/*    <input onChange={e => {setNewSurname(e.target.value)}} type="text" className='form-control' id='lastName' required/>*/}
-                            {/*</div>*/}
                             <div className='col-md-12'>
-                                <label htmlFor='emailInfo' className='form-label'>E-mail</label>
-                                <input onChange={e => {setNewEmail(e.target.value)}} type="email" className='form-control' id='emailInfo' required/>
+                                <label htmlFor="firstName" className='form-label'>Imię</label>
+                                <input onChange={e => {setName(e.target.value)}}  type="text" className='form-control' id='firstName' required/>
+                            </div>
+                            <div className='col-md-12'>
+                                <label htmlFor='lastName' className='form-label'>Nazwisko</label>
+                                <input onChange={e => {setLastName(e.target.value)}} type="text" className='form-control' id='lastName' required/>
+                            </div>
+                            <div className='col-md-12'>
+                                <label htmlFor='gender' className='form-label'>Płeć</label>
+                                <select className='form-select' aria-label="Default select example" id='gender' onChange={e => {setGender(e.target.value)}}>
+                                    <option value='Kobieta'>Kobieta</option>
+                                    <option value='Mężczyzna'>Mężczyzna</option>
+                                    <option value='Inna'>Inna</option>
+                                </select>
+                            </div>
+                            <div className='col-md-12'>
+                                <label htmlFor='email' className='form-label'>E-mail</label>
+                                <input onChange={e => {setEmail(e.target.value)}} type="email" className='form-control' id='email' required/>
                             </div>
                             <div className='col-md-12'>
                                 <label htmlFor='password' className='form-label'>Hasło</label>
-                                <input onChange={e => {setNewPassword(e.target.value)}} type="password" className='form-control' id='password' required/>
+                                <input onChange={e => {setPassword(e.target.value)}} type="password" className='form-control' id='password' required/>
                             </div>
-                            {/*<div className='col-md-12'>*/}
-                            {/*    <label htmlFor='phoneNumber' className='form-label'>Telefon</label>*/}
-                            {/*    <input onChange={e => {setNewPhoneNumber(e.target.value)}} type="text" className='form-control' id='phoneNumber' placeholder=''/>*/}
-                            {/*</div>*/}
+                            <div className='col-md-12'>
+                                <label htmlFor='phoneNumber' className='form-label'>Telefon</label>
+                                <input onChange={e => {setPhoneNumber(e.target.value)}} type="text" className='form-control' id='phoneNumber'/>
+                            </div>
+                            <div className='col-md-12'>
+                                <label htmlFor='birthDate' className='form-label'>Data urodzenia</label>
+                                <input onChange={e => {setBirth(e.target.value)}} type="date" className='form-control' id='birthDate' data-provide="datepicker"/>
+                            </div>
                             <Button type='submit' className='mt-4 float-end btn-lg w-100'>Zarejestruj</Button>
                         </form>
                     </Card.Body>
@@ -73,5 +87,5 @@ function Register() {
         </>
     )
 }
-
+// controlId="date" data-provide="datepicker"
 export default Register;

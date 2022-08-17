@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import { Form, Button, Card} from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import {getAuth, signInWithEmailAndPassword} from 'firebase/auth';
-import app from "../firebase-config";
+import { app } from "../firebase-config";
 import { useNavigate } from "react-router-dom";
 
 
@@ -21,6 +21,7 @@ function Login() {
             .then((userCredential) => {
                 const user = userCredential.user;
                 sessionStorage.setItem('user', user.email);
+
                 alert('Zalogowano pomyślnie');
                 navigate('/');
             })
