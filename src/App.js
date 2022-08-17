@@ -9,6 +9,7 @@ import Login from "./components/Login";
 
 function App() {
 
+    const IS_LOGGED = sessionStorage.getItem('user');
 
     return  (
         <BrowserRouter>
@@ -18,7 +19,10 @@ function App() {
                     <Route path='/list' element={ <List />} />
                     <Route path='/profile' element={<Profile />} />
                     <Route path='/register' element={<Register />} />
-                    <Route path='/login' element={<Login />} />
+                    {IS_LOGGED === null
+                        ?<Route path='/login' element={<Login />} />
+                        :<Route path='/' element={<Main />} />
+                    }
                 </Route>
             </Routes>
         </BrowserRouter>
