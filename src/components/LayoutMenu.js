@@ -9,7 +9,7 @@ export default function LayoutMenu( {loggedIn} ) {
     function clear() {
         sessionStorage.clear()
     }
-    
+
     return (
         <>
             <Navbar bg="light" expand="lg">

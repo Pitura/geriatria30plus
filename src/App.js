@@ -24,7 +24,7 @@ function App() {
             <Routes>
                 <Route path='/' element={ <LayoutMenu loggedIn={IS_LOGGED}/>}>
                     <Route path='/' element={<Main loggedIn={IS_LOGGED}/>} />
-                    <Route path='/list' element={ <List loggedIn={IS_LOGGED} id={USER_ID}/>} />
+                    <Route path='/list' element={ <List loggedIn={IS_LOGGED} id={USER_ID} />} />
                     <Route path='/profile' element={<Profile loggedIn={IS_LOGGED}/>} />
                     <Route path='/register' element={<Register />} />
                     {IS_LOGGED === null

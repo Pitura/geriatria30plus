@@ -141,9 +141,8 @@ html {
 
 .contact {
   min-height: 30vh;
-  @media (min-width: 992px) {
-      width: 50%;
-  }
+  max-width: 700px;
+
 }
 
 .footer {

@@ -2,12 +2,11 @@ import React from 'react';
 import Accordion from "react-bootstrap/Accordion";
 import ListGroup from "react-bootstrap/ListGroup";
 
-function ListComponent( { test} ) {
+function ListComponent( { test } ) {
 
     if (test.length <= 0) {
         return <h2 className='text-center'>Ładowanie...</h2>
     }
-
     if (!test[0].tests) {
         return (
             <h2 className='text-center'>Brak zapisanych badań</h2>
