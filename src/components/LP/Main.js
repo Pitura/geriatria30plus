@@ -69,13 +69,13 @@ const Main = () => {
                 </section>
 
                 <footer className='container footer'>
-                    <div className='footer-footer d-flex justify-content-center flex-wrap'>
+                    <div className='footer-footer d-flex justify-content-center flex-column align-items-center flex-wrap'>
                         <Navbar.Brand href="#" className='header'>
                             <i className="fa-solid fa-heart-pulse"></i>
                             {' '}
                             Geriatria 30+
                         </Navbar.Brand>
-                        <div className='footer-text'> , No rights reserved. Designed By Pitura</div>
+                        <div className='footer-text'> No rights reserved. Designed By Pitura</div>
                     </div>
                 </footer>
             </section>
