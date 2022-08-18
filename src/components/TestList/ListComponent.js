@@ -7,8 +7,6 @@ function ListComponent( { test} ) {
     if (test.length <= 0) {
         return <h2 className='text-center'>Ładowanie...</h2>
     }
-    console.log(test)
-    console.log(test[0].tests)
 
     if (!test[0].tests) {
         return (
