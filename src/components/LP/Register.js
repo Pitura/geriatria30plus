@@ -47,6 +47,7 @@ function Register() {
                 <Card className='w-100' style={{maxWidth:'650px'}}>
                     <Card.Body>
                         <h2 className="text-center mb-4">Rejestracja</h2>
+                        <h5 style={{color:'red', textAlign:'center'}}>Proszę nie używać swoich regularnych maili lub haseł!</h5>
                         <form className='row g-3' onSubmit={signUp}>
                             <div className='col-md-12'>
                                 <label htmlFor="firstName" className='form-label'>Imię</label>
