@@ -18,10 +18,9 @@ function Register() {
 
     const navigate = useNavigate();
 
-    const auth = getAuth(app);
-
     const signUp = async (e) => {
         e.preventDefault();
+        const auth = getAuth(app);
         try {
             const res = await createUserWithEmailAndPassword(auth, email, password);
             await setDoc(doc(db, 'users', res.user.uid), {
