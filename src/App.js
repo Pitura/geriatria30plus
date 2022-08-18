@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {HashRouter, Route, Routes} from "react-router-dom";
 import LayoutMenu from "./components/LayoutMenu";
 import Main from "./components/LP/Main";
 import List from "./components/TestList/List";
@@ -13,7 +13,7 @@ function App() {
     const USER_ID = sessionStorage.getItem('id');
 
     return  (
-        <BrowserRouter>
+        <HashRouter>
             <Routes>
                 <Route path='/' element={ <LayoutMenu loggedIn={IS_LOGGED}/>}>
                     <Route path='/' element={<Main loggedIn={IS_LOGGED}/>} />
@@ -26,7 +26,7 @@ function App() {
                     }
                 </Route>
             </Routes>
-        </BrowserRouter>
+        </HashRouter>
     )
 }
 
