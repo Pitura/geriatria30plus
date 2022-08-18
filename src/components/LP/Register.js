@@ -59,6 +59,7 @@ function Register() {
                             <div className='col-md-12'>
                                 <label htmlFor='gender' className='form-label'>Płeć</label>
                                 <select className='form-select' aria-label="Default select example" id='gender' onChange={e => {setGender(e.target.value)}}>
+                                    <option value=''></option>
                                     <option value='Kobieta'>Kobieta</option>
                                     <option value='Mężczyzna'>Mężczyzna</option>
                                     <option value='Inna'>Inna</option>

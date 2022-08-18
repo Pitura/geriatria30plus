@@ -133,12 +133,17 @@ html {
 .czarny-humor {
   margin-top: 2rem;
   margin-bottom: 2rem;
-  height: 80vh;
+  max-height: 80vh;
+  min-height: 80vh;
+  width: 100%;
   background: url("../img/the-good-doctor-min.png") no-repeat center/contain;
 }
 
 .contact {
   min-height: 30vh;
+  @media (min-width: 992px) {
+      width: 50%;
+  }
 }
 
 .footer {
