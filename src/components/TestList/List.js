@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Accordion from 'react-bootstrap/Accordion';
@@ -7,7 +7,7 @@ import ListComponent from "./ListComponent";
 import {collection, getDocs} from "firebase/firestore";
 import {db} from "../../firebase-config";
 
-function List( {loggedIn, id} ) {
+function List( {loggedIn, id } ) {
 
     const [test, setTest] = useState([]);
 
@@ -17,7 +17,6 @@ function List( {loggedIn, id} ) {
             const data = await getDocs(usersCollectionRef);
             setTest(data.docs.map( doc =>
                 ({...doc.data()})).filter( user => user.email === loggedIn))
-
         }
         getUser();
 
