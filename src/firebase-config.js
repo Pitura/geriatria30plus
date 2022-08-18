@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    apiKey: 'AIzaSyCvDJOBkTm-OFTE1yWaQQeYiaW9PVLsTCM',
     authDomain: 'geriatria30plus.firebaseapp.com',
     projectId: 'geriatria30plus',
     storageBucket: 'geriatria30plus.appspot.com',
