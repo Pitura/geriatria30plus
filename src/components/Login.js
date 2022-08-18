@@ -39,6 +39,7 @@ function Login() {
             <Card className='w-100' style={{maxWidth:'650px'}}>
                 <Card.Body >
                     <h2 className="text-center mb-4">Logowanie</h2>
+                    <h5 style={{color:'blue', textAlign:'center'}}>Przykładowe konto: maklowicz@gmail.com / 123123</h5>
                     <Form className='container' style={{height:''}} onSubmit={signIn} >
                         <Form.Group id='email' >
                             <Form.Label>Email</Form.Label>
