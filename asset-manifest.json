@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/geriatria30plus/static/css/main.d5add57e.css",
+    "main.js": "/geriatria30plus/static/js/main.eefca0cc.js",
+    "static/media/the-good-doctor-min.png": "/geriatria30plus/static/media/the-good-doctor-min.752e5f4f167c16dddfc7.png",
+    "static/media/national-cancer-institute-NFvdKIhxYlU-unsplash.jpg": "/geriatria30plus/static/media/national-cancer-institute-NFvdKIhxYlU-unsplash.153c7e9f7fef0066633f.jpg",
+    "static/media/national-cancer-institute-NFvdKIhxYlU-unsplash-small.jpg": "/geriatria30plus/static/media/national-cancer-institute-NFvdKIhxYlU-unsplash-small.e46f28650584b46eefb6.jpg",
+    "index.html": "/geriatria30plus/index.html",
+    "main.d5add57e.css.map": "/geriatria30plus/static/css/main.d5add57e.css.map",
+    "main.eefca0cc.js.map": "/geriatria30plus/static/js/main.eefca0cc.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d5add57e.css",
+    "static/js/main.eefca0cc.js"
+  ]
+}
