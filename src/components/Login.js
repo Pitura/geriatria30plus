@@ -13,10 +13,9 @@ function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const auth = getAuth(app);
-
     function signIn(e) {
         e.preventDefault();
+        const auth = getAuth(app);
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
