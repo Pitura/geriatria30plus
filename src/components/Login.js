@@ -21,6 +21,7 @@ function Login() {
             .then((userCredential) => {
                 const user = userCredential.user;
                 sessionStorage.setItem('user', user.email);
+                sessionStorage.setItem('id', user.uid);
 
                 alert('Zalogowano pomyślnie');
                 navigate('/');
