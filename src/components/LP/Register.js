@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { app, db } from '../../firebase-config';
 import { setDoc, doc, serverTimestamp } from 'firebase/firestore';
-import {useNavigate} from "react-router-dom";
+// import {useNavigate} from "react-router-dom";
 
 function Register() {
 
@@ -16,7 +16,7 @@ function Register() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const auth = getAuth(app);
 
