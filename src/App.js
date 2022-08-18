@@ -10,13 +10,14 @@ import Login from "./components/Login";
 function App() {
 
     const IS_LOGGED = sessionStorage.getItem('user');
+    const USER_ID = sessionStorage.getItem('id');
 
     return  (
         <BrowserRouter>
             <Routes>
                 <Route path='/' element={ <LayoutMenu loggedIn={IS_LOGGED}/>}>
                     <Route path='/' element={<Main loggedIn={IS_LOGGED}/>} />
-                    <Route path='/list' element={ <List loggedIn={IS_LOGGED}/>} />
+                    <Route path='/list' element={ <List loggedIn={IS_LOGGED} id={USER_ID}/>} />
                     <Route path='/profile' element={<Profile loggedIn={IS_LOGGED}/>} />
                     <Route path='/register' element={<Register />} />
                     {IS_LOGGED === null

@@ -44,7 +44,7 @@ export default function Profile( { loggedIn } ) {
         <Card style={{maxWidth: '90%', minWidth:'80%'}}>
           <Card.Body className='d-flex justify-content-between'>
             <Card.Title>Dane użytkownika</Card.Title>
-            <button className='btn btn-sm btn-success'><span>Edytuj dane</span>{' '}<i className="fa-solid fa-gear"></i></button>
+            <button disabled={true} className='btn btn-sm btn-success'><span>Edytuj dane</span>{' '}<i className="fa-solid fa-gear"></i></button>
           </Card.Body>
           <ListGroup className="list-group-flush">
             <ListGroup.Item><span>Imię:</span><span style={{float:'right'}}>{name}</span></ListGroup.Item>
@@ -58,6 +58,5 @@ export default function Profile( { loggedIn } ) {
           </Card.Footer>
         </Card>
       </Container>
-
   );
 }
