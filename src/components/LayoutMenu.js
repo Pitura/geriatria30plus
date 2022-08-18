@@ -4,13 +4,12 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Outlet } from 'react-router-dom';
 
-
 export default function LayoutMenu( {loggedIn} ) {
 
     function clear() {
         sessionStorage.clear()
     }
-
+    
     return (
         <>
             <Navbar bg="light" expand="lg">

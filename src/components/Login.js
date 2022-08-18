@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import { Form, Button, Card} from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import {getAuth, signInWithEmailAndPassword} from 'firebase/auth';
 import { app } from "../firebase-config";
 import { useNavigate } from "react-router-dom";
 
-
-function Login() {
+function Login( { refresh } ) {
 
     const navigate = useNavigate();
 
@@ -21,15 +20,15 @@ function Login() {
                 const user = userCredential.user;
                 sessionStorage.setItem('user', user.email);
                 sessionStorage.setItem('id', user.uid);
-
-                alert('Zalogowano pomyślnie');
-                navigate('/');
+                // alert('Zalogowano pomyślnie');
+                refresh();
             })
             .catch((error) => {
                 const errorCode = error.code;
                 alert(errorCode);
                 console.log(errorCode);
             })
+        navigate('/');
     }
 
     return (

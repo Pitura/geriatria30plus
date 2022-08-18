@@ -7,7 +7,6 @@ import ListComponent from "./ListComponent";
 import {collection, getDocs} from "firebase/firestore";
 import {db} from "../../firebase-config";
 
-
 function List( {loggedIn, id} ) {
 
     const [test, setTest] = useState([]);

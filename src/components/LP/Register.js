@@ -89,5 +89,5 @@ function Register() {
         </>
     )
 }
-// controlId="date" data-provide="datepicker"
+
 export default Register;
